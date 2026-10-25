@@ -1,0 +1,12 @@
+
+# System & Editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Node dependencies (if you add npm packages in future)
+node_modules/
+package-lock.json
+*.log
