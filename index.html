@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#101c2a"><title>Ravan Dahan · Mela mein chalo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="scene.css">
+  <style>.intro:not(.gone)~.stick,.intro:not(.gone)~.shoot-button{display:none!important}</style>
+</head>
+<body>
+  <canvas id="threeScene" aria-label="Walkable 3D Dussehra mela"></canvas>
+  <div class="brand"><span class="brand-name">mela</span><small>DUSSEHRA · RAVAN DAHAN</small></div>
+  <div class="top-actions"><span class="season">एक शाम, बचपन के नाम <b>·</b> DUSSEHRA 2026</span><button id="soundButton" class="glass-button" aria-label="Toggle sound">♫ <span>Sound on</span></button><button id="helpButton" class="glass-button">? <span>Help</span></button><button id="resetButton" class="glass-button">↻ <span>Restart</span></button></div>
+  <section id="hud" class="hud hidden"><div class="hud-card"><small>THE MELA IS OPEN</small><strong>RAVAN DAHAN</strong></div><div class="score-card"><small>FIREWORKS</small><strong id="scoreValue">0000</strong></div><div class="ammo-card"><small>BURNING ARROWS</small><strong id="shotCount">05</strong></div></section>
+  <div class="place-pill"><i></i> <span id="loadNote">WALK FREELY · PLAY · GET A LITTLE LOST</span></div>
+  <div class="crosshair" aria-hidden="true"><i></i><b></b></div>
+  <div id="statusMessage" class="status-message" role="status"></div>
+  <div id="controls" class="controls hidden"><span id="lockHint">DRAG TO LOOK</span><b>WASD / ARROWS <i>TO WALK</i></b><b>MOUSE / DRAG <i>TO LOOK</i></b><b>CLICK / SPACE <i>TO SHOOT</i></b><b>SHIFT <i>TO RUN</i></b></div>
+  <div class="desktop-tip"><span>✦</span> Find Ravana at the far end of the mela and light the sky.</div>
+  <div id="stick" class="stick" aria-label="Move joystick"><i id="stickNub"></i></div>
+  <button id="shootButton" class="shoot-button" aria-label="Shoot burning arrow">➶ <span>SHOOT</span></button>
+  <div class="intro">
+    <div class="intro-content"><div class="eyebrow">THE MELA IS OPEN · DUSSEHRA NIGHT</div><h1>मेरा <em>Dussehra Mela.</em></h1><p class="subhead">Mela chaloge mere saath?</p><p class="intro-copy">Walk into the fair. Find Ravana. Light up the night.</p><button id="startButton" class="enter-button">ENTER THE MELA <span>→</span></button><div class="microcopy">WALK FREELY · PLAY · GET A LITTLE LOST</div><div class="intro-footer">A little chaos. A little magic. Our kind of evening.</div></div>
+  </div>
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js"}}</script>
+  <script>
+    if(location.protocol==='file:'){
+      const note=document.createElement('div');note.className='launch-note';note.innerHTML='<b>Launch the mela with its local server</b><span>Close this page and double-click <code>start-game.bat</code> in the game folder. Browsers block the 3D modules and model when index.html is opened directly.</span>';document.body.append(note);
+    }else import('./three-scene.js').catch(error=>{console.error(error);document.querySelector('.intro-copy').textContent='The 3D scene could not start. Check your internet connection and reload.'});
+  </script>
+</body>
+</html>
